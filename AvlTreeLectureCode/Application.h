@@ -39,7 +39,7 @@ void ClearAvlTree()
 void DisplayBanner()
 {
 	cout << "******************************************\n";
-	cout << "                 AVL Tree \n";
+	cout << "  Lecture Code : AVL Tree \n";
 	cout << "******************************************\n\n";
 
 }
