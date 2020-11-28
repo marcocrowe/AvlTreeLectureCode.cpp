@@ -6,3 +6,5 @@
 
 *.vcxproj.user
 *.vcxproj.filters
+/AvlTreeLectureCode/Debug
+/Debug
