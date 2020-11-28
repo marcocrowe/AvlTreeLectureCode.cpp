@@ -19,6 +19,8 @@ public:
 	void DeleteItem(ItemType item);
 	void InsertItem(ItemType item);
 	string ToString();
+private:
+	TreeNode<ItemType>* root;
 };
 
 
