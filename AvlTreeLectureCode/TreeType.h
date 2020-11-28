@@ -142,7 +142,7 @@ void Insert(TreeNode<ItemType>*& tree, ItemType item, bool& taller)
 		taller = true;
 	}
 	else if(item == tree->info)
-		cerr << "Duplicate key is not 				allowed in AVL tree." << endl;
+		cerr << "Duplicate key is not allowed in AVL tree." << endl;
 	else if(item < tree->info)
 	{
 		Insert(tree->left, item, taller);  		// Insert into left subtree

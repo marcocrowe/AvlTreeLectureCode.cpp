@@ -95,7 +95,7 @@ void InitializeAvlTree()
 {
 	//avlTree->Clear();
 	cout << "Initialize AVL Tree:";
-	string namesValues[] = { "Tom" , "Una", "Mary", "Zaki", "Tim", "Amy" };	// { "Mark", "Ann", "Tom", "Sarah", "Simon" };
+	string namesValues[] = { "Tom" , "Ursula", "Mary", "Zaki", "Tim", "Amy" };	// { "Mark", "Ann", "Tom", "Sarah", "Simon" };
 	for(string value : namesValues)
 	{
 		avlTree->InsertItem(value);
