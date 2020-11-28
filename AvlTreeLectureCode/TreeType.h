@@ -1,4 +1,23 @@
 #pragma once
+
+typedef enum { LH, EH, RH } balance;
+template <class ItemType>struct  TreeNode
+{
+	ItemType info;
+	ItemType root;
+	balance bf;
+	TreeNode* left;
+	TreeNode* right;
+};
+
+template <class ItemType>class TreeType
+{
+public:
+	void DeleteItem(ItemType item);
+	void InsertItem(ItemType item);
+};
+
+
 template<class ItemType>void Insert(TreeNode<ItemType>*& tree, ItemType item, bool& taller);
 
 
