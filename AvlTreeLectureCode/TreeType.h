@@ -1,9 +1,11 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 #include <string>
 using namespace std;
 
 typedef enum { LH, EH, RH } balance;
+
 template <class ItemType>struct  TreeNode
 {
 	ItemType info;
@@ -25,11 +27,12 @@ private:
 
 
 template<class ItemType>void Insert(TreeNode<ItemType>*& tree, ItemType item, bool& taller);
+template<class T>string ToInOrderString(TreeNode<T>* tree);
 
 template<class ItemType>string TreeType<ItemType>::ToString()
 // Calls recursive function Delete to delete item from tree.
 {
-	return "";
+	return ToInOrderString<ItemType>(root);
 }
 
 
@@ -348,3 +351,55 @@ void DelLeftBalance(TreeNode<ItemType>*& tree, bool& shorter)
 	}
 }
 /// 06 - Delete Source Code File : Slide 4-7
+
+/// ToString
+
+template<class T>string TtoString(T const& t)
+{
+	ostringstream myObjectStream;
+	myObjectStream << t;
+	return myObjectStream.str();
+}
+static string BalanceFactorToString(balance height)
+{
+	if(height == LH)
+		return "Left Unbalanced";
+	else if(height == RH)
+		return "Right Unbalanced";
+	else //if (height == Balanced)
+		return "Balanced";
+}
+
+template<class T>string ToString(TreeNode<T>* tree)
+{
+	string lhs = tree->left == NULL ? "NULL" : TtoString(tree->left->info);
+	string rhs = tree->right == NULL ? "NULL" : TtoString(tree->right->info);
+	string balanceFactor = BalanceFactorToString(tree->bf);
+
+	return "\n\t " + TtoString(tree->info) + ":\tLeft: " + lhs + " \tRight: " + rhs + " \tBalance Factor: " + balanceFactor;
+}
+template<class T>string ToInOrderString(TreeNode<T>* tree)
+{
+	if(tree == NULL)
+		return "";
+	else
+	{
+		string text = ToInOrderString(tree->left);
+		text += ToString(tree);
+		text += ToInOrderString(tree->right);
+		return text;
+	}
+}
+template<class T>string ToPreOrderString(TreeNode<T>* tree)
+{
+	if(tree != NULL)
+	{
+		string text = TtoString(tree->info) + " ";
+		text += ToPreOrderString(tree->left);
+		text += ToPreOrderString(tree->right);
+		return text;
+	}
+	else
+		return "";
+}
+
