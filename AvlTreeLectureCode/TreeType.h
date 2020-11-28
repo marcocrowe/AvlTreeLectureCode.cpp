@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+#include <string>
+using namespace std;
 
 typedef enum { LH, EH, RH } balance;
 template <class ItemType>struct  TreeNode
@@ -15,10 +18,17 @@ template <class ItemType>class TreeType
 public:
 	void DeleteItem(ItemType item);
 	void InsertItem(ItemType item);
+	string ToString();
 };
 
 
 template<class ItemType>void Insert(TreeNode<ItemType>*& tree, ItemType item, bool& taller);
+
+template<class ItemType>string TreeType<ItemType>::ToString()
+// Calls recursive function Delete to delete item from tree.
+{
+	return "";
+}
 
 
 /// 03 - AVL Part 2 File : Slide 17-19
